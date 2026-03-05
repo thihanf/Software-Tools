@@ -1,0 +1,34 @@
+<html>
+  <head></head>
+  <body>
+    <style>
+      .select {
+        margin-block-end: 10px;
+      }
+    </style>
+    <h2>Select an Option</h2>
+
+    <div class="select">
+      <select id="imageSelector">
+        <option value="images/Garfield.jpg">Garfield</option>
+        <option value="images/jon.jpg">Jon</option>
+        <option value="images/nermal.jpg">Nermal</option>
+        <option value="images/odie.jpg">Odie</option>
+        <option value="images/pooky.jpg">Pooky</option>
+      </select>
+    </div>
+
+    <br />
+
+    <img id="displayImage" src="images/Garfield.jpg" alt="Selected Image" />
+
+    <script>
+      const selector = document.getElementById("imageSelector");
+      const image = document.getElementById("displayImage");
+
+      selector.addEventListener("change", function () {
+        image.src = this.value;
+      });
+    </script>
+  </body>
+</html>
