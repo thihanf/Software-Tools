@@ -3,28 +3,35 @@
   <body>
     <style>
       .select {
-        margin-block-end: 10px;
+        margin-block-end: 20px;
       }
     </style>
     <h2>Select an Option</h2>
 
     <div class="select">
-      <select id="imageSelector">
-        <option value="images/Garfield.jpg">Garfield</option>
-        <option value="images/jon.jpg">Jon</option>
-        <option value="images/nermal.jpg">Nermal</option>
-        <option value="images/odie.jpg">Odie</option>
-        <option value="images/pooky.jpg">Pooky</option>
-      </select>
+      <select id="imageSelector"></select>
     </div>
-
-    <br />
 
     <img id="displayImage" src="images/Garfield.jpg" alt="Selected Image" />
 
     <script>
       const selector = document.getElementById("imageSelector");
       const image = document.getElementById("displayImage");
+
+      const characters = [
+        { name: "Garfield", file: "images/Garfield.jpg" },
+        { name: "Jon", file: "images/jon.jpg" },
+        { name: "Nermal", file: "images/nermal.jpg" },
+        { name: "Odie", file: "images/odie.jpg" },
+        { name: "Pooky", file: "images/pooky.jpg" },
+      ];
+
+      characters.forEach(function (item) {
+        const option = document.createElement("option");
+        option.text = item.name;
+        option.value = item.file;
+        selector.appendChild(option);
+      });
 
       selector.addEventListener("change", function () {
         image.src = this.value;
